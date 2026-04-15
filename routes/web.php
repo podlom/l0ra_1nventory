@@ -1,16 +1,15 @@
 <?php
 
-use App\Livewire\DroneList;
-use App\Livewire\DroneDetails;
-use App\Livewire\Units\UnitIndex;
-use App\Livewire\Units\UnitForm;
-use App\Livewire\Invoices\InvoiceIndex;
-use App\Livewire\Invoices\InvoiceForm;
-use App\Livewire\Ammunition\AmmunitionIndex;
 use App\Livewire\Ammunition\AmmunitionForm;
+use App\Livewire\Ammunition\AmmunitionIndex;
+use App\Livewire\DroneDetails;
+use App\Livewire\DroneList;
 use App\Livewire\HomePage;
+use App\Livewire\Invoices\InvoiceForm;
+use App\Livewire\Invoices\InvoiceIndex;
+use App\Livewire\Units\UnitForm;
+use App\Livewire\Units\UnitIndex;
 use Illuminate\Support\Facades\Route;
-
 
 // Головна сторінка
 Route::get('/', HomePage::class)->name('home');

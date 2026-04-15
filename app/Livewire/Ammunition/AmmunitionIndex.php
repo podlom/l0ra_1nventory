@@ -6,7 +6,6 @@ use App\Models\Ammunition;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-
 class AmmunitionIndex extends Component
 {
     use WithPagination;

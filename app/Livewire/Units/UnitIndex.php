@@ -6,7 +6,6 @@ use App\Models\Unit;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-
 class UnitIndex extends Component
 {
     use WithPagination;

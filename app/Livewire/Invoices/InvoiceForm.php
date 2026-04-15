@@ -5,17 +5,19 @@ namespace App\Livewire\Invoices;
 use App\Models\Invoice;
 use Livewire\Component;
 
-
 class InvoiceForm extends Component
 {
     public ?Invoice $invoice = null;
 
     public $number;
+
     public $created_at;
+
     public $support_service_name;
+
     public $invoice_date;
 
-    public function mount(Invoice $invoice = null)
+    public function mount(?Invoice $invoice = null)
     {
         if ($invoice) {
             $this->invoice = $invoice;

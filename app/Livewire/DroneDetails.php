@@ -8,11 +8,15 @@ use Livewire\Component;
 class DroneDetails extends Component
 {
     public Drone $drone; // Приймаємо об'єкт дрона
-    
-    public $itemName, $itemQty = 1, $itemPrice;
-    
+
+    public $itemName;
+
+    public $itemQty = 1;
+
+    public $itemPrice;
+
     public $editId = null;
-    
+
     public $confirmDeleteId = null;
 
     public function addItem()
@@ -30,7 +34,7 @@ class DroneDetails extends Component
 
         $this->reset(['itemName', 'itemQty', 'itemPrice']);
     }
-    
+
     public function editItem($id)
     {
         $item = $this->drone->equipment()->find($id);
@@ -59,21 +63,21 @@ class DroneDetails extends Component
         $this->reset(['itemName', 'itemQty', 'itemPrice', 'editId']);
     }
 
-	public function askDelete($id)
-	{
-		$this->confirmDeleteId = $id;
-	}
+    public function askDelete($id)
+    {
+        $this->confirmDeleteId = $id;
+    }
 
-	public function deleteItem()
-	{
-		$this->drone->equipment()->find($this->confirmDeleteId)->delete();
-		$this->confirmDeleteId = null;
-	}
+    public function deleteItem()
+    {
+        $this->drone->equipment()->find($this->confirmDeleteId)->delete();
+        $this->confirmDeleteId = null;
+    }
 
     public function render()
     {
         return view('livewire.drone-details', [
-            'items' => $this->drone->equipment()->get()
+            'items' => $this->drone->equipment()->get(),
         ]);
     }
 }

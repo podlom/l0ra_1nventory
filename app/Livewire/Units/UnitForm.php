@@ -5,15 +5,15 @@ namespace App\Livewire\Units;
 use App\Models\Unit;
 use Livewire\Component;
 
-
 class UnitForm extends Component
 {
     public ?Unit $unit = null;
 
     public $name;
+
     public $full_name;
 
-    public function mount(Unit $unit = null)
+    public function mount(?Unit $unit = null)
     {
         if ($unit) {
             $this->unit = $unit;

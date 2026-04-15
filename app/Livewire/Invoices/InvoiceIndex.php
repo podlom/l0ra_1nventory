@@ -6,7 +6,6 @@ use App\Models\Invoice;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-
 class InvoiceIndex extends Component
 {
     use WithPagination;

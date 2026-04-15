@@ -7,22 +7,29 @@ use App\Models\Invoice;
 use App\Models\Unit;
 use Livewire\Component;
 
-
 class AmmunitionForm extends Component
 {
     public ?Ammunition $ammo = null;
 
     public $invoice_id;
+
     public $row_number;
+
     public $equipment_name;
+
     public $unit_id;
+
     public $authorized_amount;
+
     public $ledger_amount;
+
     public $in_stock;
+
     public $lack_amount;
+
     public $description;
 
-    public function mount(Ammunition $ammo = null)
+    public function mount(?Ammunition $ammo = null)
     {
         if ($ammo) {
             $this->ammo = $ammo;
@@ -42,7 +49,7 @@ class AmmunitionForm extends Component
     public function updated($field)
     {
         if (in_array($field, ['authorized_amount', 'in_stock'])) {
-            $this->lack_amount = max(0, (int)$this->authorized_amount - (int)$this->in_stock);
+            $this->lack_amount = max(0, (int) $this->authorized_amount - (int) $this->in_stock);
         }
     }
 
