@@ -5,17 +5,30 @@
 
     <form wire:submit.prevent="save">
         <div class="mb-4">
+
             <div>
                 <label>Номер накладної</label>
                 <input type="text" wire:model="number" class="input">
             </div>
 
             <div>
-                <label>Дата накладної</label>
+                <label>Дата створення (created_at)</label>
                 <input type="text" wire:model="created_at" class="input">
             </div>
 
-            @error('number') <p class="text-red-600">{{ $message }}</p> @enderror
+            <div>
+                <label>Підрозділ / служба забезпечення</label>
+                <input type="text" wire:model="support_service_name" class="input">
+            </div>
+
+            <div>
+                <label>Дата накладної</label>
+                <input type="date" wire:model="invoice_date" class="input">
+            </div>
+
+            @error('number')
+            <p class="text-red-600">{{ $message }}</p>
+            @enderror
         </div>
 
         <button class="btn btn-primary">Зберегти</button>

@@ -11,8 +11,9 @@ class InvoiceForm extends Component
     public ?Invoice $invoice = null;
 
     public $number;
-
     public $created_at;
+    public $support_service_name;
+    public $invoice_date;
 
     public function mount(Invoice $invoice = null)
     {
@@ -20,6 +21,8 @@ class InvoiceForm extends Component
             $this->invoice = $invoice;
             $this->number = $invoice->number;
             $this->created_at = $invoice->created_at;
+            $this->support_service_name = $invoice->support_service_name;
+            $this->invoice_date = $invoice->invoice_date;
         }
     }
 
@@ -27,6 +30,8 @@ class InvoiceForm extends Component
     {
         $data = $this->validate([
             'number' => 'required|string|max:255',
+            'support_service_name' => 'nullable|string|max:255',
+            'invoice_date' => 'nullable|date',
         ]);
 
         if ($this->invoice) {

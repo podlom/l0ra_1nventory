@@ -9,6 +9,7 @@
             <th>ID</th>
             <th>Номер</th>
             <th>Створено</th>
+            <th>Назва служби</th>
             <th></th>
         </tr>
         </thead>
@@ -17,7 +18,8 @@
             <tr>
                 <td>{{ $invoice->id }}</td>
                 <td>{{ $invoice->number }}</td>
-                <td>{{ $invoice->created_at->format('d.m.Y') }}</td>
+                <td>{{ $invoice->invoice_date }}</td>
+                <td>{{ $invoice->support_service_name }}</td>
                 <td>
                     <a href="{{ route('invoices.edit', $invoice) }}" class="text-blue-600">Редагувати</a>
                     <button wire:click="delete({{ $invoice->id }})" class="text-red-600 ml-2">Видалити</button>

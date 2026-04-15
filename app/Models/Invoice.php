@@ -10,6 +10,8 @@ class Invoice extends Model
 {
     protected $fillable = [
         'number',
+        'support_service_name',
+        'invoice_date',
     ];
 
     public function ammunition(): HasMany
