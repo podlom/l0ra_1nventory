@@ -18,7 +18,7 @@
 
         <div class="mb-4">
             <label>№ з/п</label>
-            <input type="number" wire:model="row_number" class="input border p-2 w-20 rounded">
+            <input type="number" min="0" wire:model="row_number" class="input border p-2 w-20 rounded">
         </div>
 
         <div class="mb-4">
@@ -41,24 +41,24 @@
         <div class="grid grid-cols-2 gap-4 mb-4">
             <div>
                 <label>За штатом</label>
-                <input type="number" wire:model="authorized_amount" class="input border p-2 w-20 rounded">
+                <input type="number" min="0" wire:model="authorized_amount" class="input border p-2 w-20 rounded">
             </div>
 
             <div class="mb-4">
                 <label>Нестача</label>
-                <input type="number" wire:model="lack_amount" class="input border p-2 w-20 rounded">
+                <input type="number" min="0" wire:model="lack_amount" class="input border p-2 w-20 rounded">
             </div>
         </div>
 
         <div class="grid grid-cols-2 gap-4 mb-4">
             <div>
                 <label>В наявності</label>
-                <input type="number" wire:model="in_stock" class="input border p-2 w-20 rounded">
+                <input type="number" min="0" wire:model="in_stock" class="input border p-2 w-20 rounded">
             </div>
 
             <div class="mb-4">
                 <label>По книзі обліку</label>
-                <input type="number" wire:model="ledger_amount" class="input border p-2 w-20 rounded">
+                <input type="number" min="0" wire:model="ledger_amount" class="input border p-2 w-20 rounded">
             </div>
         </div>
 
@@ -66,6 +66,8 @@
             <label>Примітка</label>
             <textarea wire:model="description" class="input border p-8 w-120 rounded"></textarea>
         </div>
+
+        <input type="hidden" name="return_url" value="{{ $return_url }}">
 
         <button class="btn btn-primary bg-blue-600 text-white hover:text-blue-900 px-4 py-2 rounded">Зберегти</button>
     </form>

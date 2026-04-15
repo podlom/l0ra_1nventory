@@ -29,6 +29,8 @@ class AmmunitionForm extends Component
 
     public $description;
 
+    public string|null $return_url = null;
+
     public function mount(?Ammunition $ammo = null)
     {
         if ($ammo) {
@@ -44,6 +46,8 @@ class AmmunitionForm extends Component
             $this->lack_amount = $ammo->lack_amount;
             $this->description = $ammo->description;
         }
+
+        $this->return_url = request()->query('return_url');
     }
 
     public function updated($field)
@@ -73,7 +77,9 @@ class AmmunitionForm extends Component
             Ammunition::create($data);
         }
 
-        return redirect()->route('ammunition.index');
+        return $this->return_url
+            ? redirect()->to($this->return_url)
+            : redirect()->route('ammunition.index');
     }
 
     public function render()
@@ -81,6 +87,7 @@ class AmmunitionForm extends Component
         return view('livewire.ammunition.form', [
             'invoices' => Invoice::all(),
             'units' => Unit::all(),
+            'return_url' => $this->return_url,
         ]);
     }
 }

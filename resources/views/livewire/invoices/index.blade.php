@@ -1,7 +1,7 @@
 <div>
     <h1 class="text-2xl font-bold mb-4">Видаткові накладні</h1>
 
-    <a href="{{ route('invoices.create') }}" class="btn btn-primary bg-blue-600 text-white px-4 py-2 rounded">Додати</a>
+    <a href="{{ route('invoices.create') }}" class="btn btn-primary bg-blue-600 text-white hover:text-blue-900 px-4 py-2 rounded">Додати</a>
 
     <div class="bg-white shadow-md rounded-lg overflow-hidden border border-gray-200">
         <table class="min-w-full divide-y divide-gray-200">
