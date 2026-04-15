@@ -16,6 +16,6 @@
             @error('full_name') <p class="text-red-600">{{ $message }}</p> @enderror
         </div>
 
-        <button class="btn btn-primary">Зберегти</button>
+        <button class="btn btn-primary bg-blue-600 text-white px-4 py-2 rounded">Зберегти</button>
     </form>
 </div>

@@ -1,6 +1,6 @@
 <div class="max-w-3xl mx-auto py-10">
 
-    <h1 class="text-3xl font-bold mb-8">Облік майна підрозділів 33 ОМБР РБПАК</h1>
+    <h1 class="text-3xl font-bold mb-8">База майна підрозділів 33 ОМБР РБПАК</h1>
 
     <div class="space-y-6">
 

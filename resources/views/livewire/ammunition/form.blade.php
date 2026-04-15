@@ -7,7 +7,7 @@
 
         <div class="mb-4">
             <label>Накладна</label>
-            <select wire:model="invoice_id" class="input">
+            <select wire:model="invoice_id" class="input border p-2 rounded">
                 <option value="">-- виберіть накладну --</option>
                 @foreach($invoices as $inv)
                     <option value="{{ $inv->id }}">{{ $inv->number }}</option>
@@ -18,18 +18,18 @@
 
         <div class="mb-4">
             <label>№ з/п</label>
-            <input type="number" wire:model="row_number" class="input">
+            <input type="number" wire:model="row_number" class="input border p-2 w-20 rounded">
         </div>
 
         <div class="mb-4">
             <label>Найменування</label>
-            <input type="text" wire:model="equipment_name" class="input">
+            <input type="text" wire:model="equipment_name" class="input border p-2 rounded">
             @error('equipment_name') <p class="text-red-600">{{ $message }}</p> @enderror
         </div>
 
         <div class="mb-4">
             <label>Одиниця виміру</label>
-            <select wire:model="unit_id" class="input">
+            <select wire:model="unit_id" class="input border p-2 rounded">
                 <option value="">-- виберіть одиницю --</option>
                 @foreach($units as $u)
                     <option value="{{ $u->id }}">{{ $u->name }} ({{ $u->full_name }})</option>
@@ -38,33 +38,35 @@
             @error('unit_id') <p class="text-red-600">{{ $message }}</p> @enderror
         </div>
 
-        <div class="grid grid-cols-3 gap-4 mb-4">
+        <div class="grid grid-cols-2 gap-4 mb-4">
             <div>
                 <label>За штатом</label>
-                <input type="number" wire:model="authorized_amount" class="input">
+                <input type="number" wire:model="authorized_amount" class="input border p-2 w-20 rounded">
             </div>
 
-            <div>
-                <label>В наявності</label>
-                <input type="number" wire:model="in_stock" class="input">
-            </div>
-
-            <div>
+            <div class="mb-4">
                 <label>Нестача</label>
-                <input type="number" wire:model="lack_amount" class="input" readonly>
+                <input type="number" wire:model="lack_amount" class="input border p-2 w-20 rounded">
             </div>
         </div>
 
-        <div class="mb-4">
-            <label>По книзі обліку</label>
-            <input type="number" wire:model="ledger_amount" class="input">
+        <div class="grid grid-cols-2 gap-4 mb-4">
+            <div>
+                <label>В наявності</label>
+                <input type="number" wire:model="in_stock" class="input border p-2 w-20 rounded">
+            </div>
+
+            <div class="mb-4">
+                <label>По книзі обліку</label>
+                <input type="number" wire:model="ledger_amount" class="input border p-2 w-20 rounded">
+            </div>
         </div>
 
         <div class="mb-4">
             <label>Примітка</label>
-            <textarea wire:model="description" class="input"></textarea>
+            <textarea wire:model="description" class="input border p-8 w-120 rounded"></textarea>
         </div>
 
-        <button class="btn btn-primary">Зберегти</button>
+        <button class="btn btn-primary bg-blue-600 text-white hover:text-blue-900 px-4 py-2 rounded">Зберегти</button>
     </form>
 </div>

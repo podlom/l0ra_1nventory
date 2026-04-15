@@ -8,22 +8,17 @@
 
             <div>
                 <label>Номер накладної</label>
-                <input type="text" wire:model="number" class="input">
-            </div>
-
-            <div>
-                <label>Дата створення (created_at)</label>
-                <input type="text" wire:model="created_at" class="input">
-            </div>
-
-            <div>
-                <label>Підрозділ / служба забезпечення</label>
-                <input type="text" wire:model="support_service_name" class="input">
+                <input type="text" wire:model="number" class="border p-2 rounded">
             </div>
 
             <div>
                 <label>Дата накладної</label>
-                <input type="date" wire:model="invoice_date" class="input">
+                <input type="date" wire:model="invoice_date"  class="border p-2 rounded">
+            </div>
+
+            <div>
+                <label>Підрозділ / служба забезпечення</label>
+                <input type="text" wire:model="support_service_name"  class="border p-2 rounded">
             </div>
 
             @error('number')
@@ -31,6 +26,6 @@
             @enderror
         </div>
 
-        <button class="btn btn-primary">Зберегти</button>
+        <button class="btn btn-primary bg-blue-600 text-white hover:text-blue-900 px-4 py-2 rounded">Зберегти</button>
     </form>
 </div>

@@ -1,5 +1,5 @@
 <div class="max-w-4xl mx-auto p-6">
-    <h1 class="text-2xl font-bold mb-6 text-gray-800">Облік дронів РБПАК 33 ОМБР</h1>
+    <h1 class="text-2xl font-bold mb-6 text-gray-800">Облік дронів 33 ОМБР РБПАК</h1>
 
     @if (session()->has('message'))
         <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
