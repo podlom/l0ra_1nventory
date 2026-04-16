@@ -24,7 +24,7 @@
                 @error('inventory_number') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
             </div>
 
-            <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition">
+            <button type="submit" class="bg-blue-600 hover:text-blue-900 text-white font-bold py-2 px-4 rounded transition">
                 Додати в базу
             </button>
         </form>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Drone;
 
 use App\Models\Drone;
 use Livewire\Component;
@@ -76,7 +76,7 @@ class DroneDetails extends Component
 
     public function render()
     {
-        return view('livewire.drone-details', [
+        return view('livewire.drone.details', [
             'items' => $this->drone->equipment()->get(),
         ]);
     }

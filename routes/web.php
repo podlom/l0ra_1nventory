@@ -2,8 +2,8 @@
 
 use App\Livewire\Ammunition\AmmunitionForm;
 use App\Livewire\Ammunition\AmmunitionIndex;
-use App\Livewire\DroneDetails;
-use App\Livewire\DroneList;
+use App\Livewire\Drone\DroneDetails;
+use App\Livewire\Drone\DroneList;
 use App\Livewire\HomePage;
 use App\Livewire\Invoices\InvoiceForm;
 use App\Livewire\Invoices\InvoiceIndex;

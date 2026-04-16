@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Drone;
 
 use App\Models\Drone;
 use Livewire\Attributes\Rule;
@@ -37,7 +37,7 @@ class DroneList extends Component
 
     public function render()
     {
-        return view('livewire.drone-list', [
+        return view('livewire.drone.list', [
             'drones' => Drone::latest()->get(),
         ]);
     }

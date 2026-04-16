@@ -26,7 +26,7 @@
             <h2 class="text-xl font-semibold mb-3">Облік дронів</h2>
 
             <a href="/drones" class="block text-blue-600 hover:underline">
-                • Перегляд та облік дронів
+                • Облік дронів та комплектів обладнання до них
             </a>
         </div>
 
