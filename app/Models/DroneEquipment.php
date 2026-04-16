@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class DroneEquipment extends Model
 {
@@ -12,11 +13,17 @@ class DroneEquipment extends Model
         'drone_id',
         'name',
         'quantity',
+        'unit_id',
         'price',
     ];
 
     public function drone()
     {
         return $this->belongsTo(Drone::class);
+    }
+
+    public function unit(): BelongsTo
+    {
+        return $this->belongsTo(Unit::class);
     }
 }

@@ -16,4 +16,9 @@ class Unit extends Model
     {
         return $this->hasMany(Ammunition::class);
     }
+
+    public function droneEquipment(): HasMany
+    {
+        return $this->hasMany(DroneEquipment::class);
+    }
 }
