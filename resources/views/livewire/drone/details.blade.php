@@ -40,17 +40,17 @@
 			<th class="border p-2 text-left">Назва</th>
 			<th class="border p-2">Кількість</th>
 			<th class="border p-2">Од. виміру</th>
-			<th class="border p-2">Вартість</th>
+			<th class="border p-2">Вартість, грн</th>
 			<th class="border p-2 w-32">Дії</th>
 		</tr>
 		</thead>
 		<tbody>
 		@foreach($items as $item)
 			<tr>
-				<td class="border p-2 text-center">{{ $item->name }}</td>
+				<td class="border p-2">{{ $item->name }}</td>
 				<td class="border p-2 text-center">{{ $item->quantity }}</td>
 				<td class="border p-2 text-center">{{ $item->unit->name ?? '—' }}</td>
-				<td class="border p-2 text-right">{{ $item->price }} грн</td>
+				<td class="border p-2 text-right">{{ $item->price ?? '-' }}</td>
 				<td class="border p-2 text-center">
 					<button wire:click="editItem({{ $item->id }})" class="text-blue-600 hover:text-blue-900">Редагувати</button>
 					<button wire:click="askDelete({{ $item->id }})" class="text-red-600 ml-2">Видалити</button>
