@@ -23,7 +23,7 @@
 
         <div class="mb-4">
             <label>Найменування</label>
-            <input type="text" wire:model="equipment_name" class="input border p-2 rounded">
+            <input type="text" wire:model="equipment_name" class="input border p-2 w-96 rounded">
             @error('equipment_name') <p class="text-red-600">{{ $message }}</p> @enderror
         </div>
 
@@ -64,7 +64,7 @@
 
         <div class="mb-4">
             <label>Примітка</label>
-            <textarea wire:model="description" class="input border p-8 w-120 rounded"></textarea>
+            <textarea wire:model="description" class="input border p-2 w-120 h-48 rounded"></textarea>
         </div>
 
         <input type="hidden" name="return_url" value="{{ $return_url }}">

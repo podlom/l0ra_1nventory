@@ -25,7 +25,7 @@ class UnitForm extends Component
     public function save()
     {
         $data = $this->validate([
-            'name' => 'required|string|min:2|max:255',
+            'name' => 'required|string|min:1|max:255',
             'full_name' => 'string|max:255',
         ]);
 
