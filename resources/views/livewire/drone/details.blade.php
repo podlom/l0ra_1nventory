@@ -56,8 +56,17 @@
 				<td class="border p-2 text-center">{{ $item->unit->name ?? '—' }}</td>
 				<td class="border p-2 text-right">{{ $item->price ?? '-' }}</td>
 				<td class="border p-2 text-center">
-					<button wire:click="editItem({{ $item->id }})" class="text-blue-600 hover:text-blue-900">Редагувати</button>
-					<button wire:click="askDelete({{ $item->id }})" class="text-red-600 ml-2">Видалити</button>
+					<button wire:click="editItem({{ $item->id }})"
+                            title="Редагувати"
+                            class="text-green-600 hover:text-green-900 mr-4">
+                        <x-heroicon-o-pencil class="w-5 h-5"/>
+                    </button>
+
+					<button wire:click="askDelete({{ $item->id }})"
+                            title="Видалити"
+                            class="text-red-600 hover:text-red-900 mr-4">
+                        <x-heroicon-o-trash class="w-5 h-5"/>
+                    </button>
 				</td>
 			</tr>
 		@endforeach

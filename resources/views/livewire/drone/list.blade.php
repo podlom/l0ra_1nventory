@@ -44,17 +44,71 @@
             <tbody class="bg-white divide-y divide-gray-200">
             @foreach($drones as $drone)
                 <tr wire:key="{{ $drone->id }}">
+                    {{-- MODEL --}}
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                        {{ $drone->model }}
+                        @if($editId === $drone->id)
+                            <input type="text"
+                                   wire:model="editModel"
+                                   class="border-gray-300 rounded-md w-full">
+                            @error('editModel') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
+                        @else
+                            {{ $drone->model }}
+                        @endif
                     </td>
+
+                    {{-- INVENTORY --}}
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 font-mono">
-                        {{ $drone->inventory_number }}
+                        @if($editId === $drone->id)
+                            <input type="text"
+                                   wire:model="editInventory"
+                                   class="border-gray-300 rounded-md w-full">
+                            @error('editInventory') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
+                        @else
+                            {{ $drone->inventory_number }}
+                        @endif
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <a href="{{ route('drone.show', $drone->id) }}" class="text-blue-600 hover:text-blue-900 mr-4">Комплектація</a>
-                        <button wire:click="delete({{ $drone->id }})"
-                                wire:confirm="Ви впевнені, що хочете видалити цей дрон?"
-                                class="text-red-600 hover:text-red-900">Видалити</button>
+
+                    {{-- ACTIONS --}}
+                    <td class="px-6 py-4 text-sm font-medium">
+
+                        @if($editId === $drone->id)
+                            <div>
+                                <button wire:click="update"
+                                        title="Зберегти"
+                                        class="text-green-600 hover:text-green-900 mr-3">
+                                    <x-heroicon-o-check-circle class="w-5 h-5"/>
+                                </button>
+
+                                <button wire:click="cancelEdit"
+                                        title="Скасувати редагування"
+                                        class="text-gray-600 hover:text-gray-900"
+                                        wire:confirm="Ви впевнені, що хочете скасувати зміни?">
+                                    <x-heroicon-o-x-circle class="w-5 h-5"/>
+                                </button>
+                            </div>
+                        @else
+                            <div>
+                                <button wire:click="edit({{ $drone->id }})"
+                                        title="Редагувати"
+                                        class="text-green-600 hover:text-green-900 mr-4">
+                                    <x-heroicon-o-pencil class="w-5 h-5"/>
+                                </button>
+
+                                <a href="{{ route('drone.show', $drone->id) }}"
+                                   title="Комплектація"
+                                   class="text-blue-600 hover:text-blue-900 mr-4">
+                                    <x-heroicon-o-cog-6-tooth class="w-5 h-5"/>
+                                </a>
+
+                                <button wire:click="delete({{ $drone->id }})"
+                                        title="Видалити"
+                                        wire:confirm="Ви впевнені, що хочете видалити цей дрон?"
+                                        class="text-red-600 hover:text-red-900 mr-4">
+                                    <x-heroicon-o-trash class="w-5 h-5"/>
+                                </button>
+                            </div>
+                        @endif
+
                     </td>
                 </tr>
             @endforeach
