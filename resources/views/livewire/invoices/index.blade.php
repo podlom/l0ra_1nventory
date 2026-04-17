@@ -1,7 +1,11 @@
 <div>
     <h1 class="text-2xl font-bold mb-4">Видаткові накладні</h1>
 
-    <a href="{{ route('invoices.create') }}" class="btn btn-primary bg-blue-600 text-white hover:text-blue-900 px-4 py-2 rounded">Додати</a>
+    <div class="text-center">
+        <a href="{{ route('invoices.create') }}"
+           title="Додати"
+           class="btn btn-primary bg-blue-600 text-white font-bold hover:text-blue-900 px-4 py-2 rounded">Додати</a>
+    </div>
 
     <div class="bg-white shadow-md rounded-lg overflow-hidden border border-gray-200">
         <table class="min-w-full divide-y divide-gray-200">
@@ -11,7 +15,7 @@
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Номер</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Створено</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Назва служби</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Дії</th>
+                <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Дії</th>
             </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
@@ -21,9 +25,18 @@
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 font-mono">{{ $invoice->number }}</td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 font-mono">{{ $invoice->invoice_date }}</td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 font-mono">{{ $invoice->support_service_name }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <a href="{{ route('invoices.edit', $invoice) }}" class="text-blue-600 hover:text-blue-900 mr-4">Редагувати</a>
-                        <button wire:click="delete({{ $invoice->id }})" class="text-red-600 hover:text-red-900 ml-2">Видалити</button>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium flex items-center justify-end space-x-4">
+                        <a href="{{ route('invoices.edit', $invoice) }}"
+                           title="Редагувати"
+                           class="text-green-600 hover:text-green-900">
+                            <x-heroicon-o-pencil class="w-5 h-5"/>
+                        </a>
+
+                        <button wire:click="delete({{ $invoice->id }})"
+                            title="Видалити"
+                            class="text-red-600 hover:text-red-900">
+                            <x-heroicon-o-trash class="w-5 h-5"/>
+                        </button>
                     </td>
                 </tr>
             @endforeach
