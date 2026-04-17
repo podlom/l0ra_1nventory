@@ -84,7 +84,7 @@ class DroneDetails extends Component
     public function render()
     {
         return view('livewire.drone.details', [
-            'items' => $this->drone->equipment()->get(),
+            'items' => $this->drone->equipment()->orderByDesc('id')->get(),
             'units' => Unit::all(),
         ]);
     }

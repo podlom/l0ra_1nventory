@@ -13,8 +13,9 @@ class DroneEquipment extends Model
         'drone_id',
         'name',
         'quantity',
-        'unit_id',
         'price',
+        'unit_id',
+        'description',
     ];
 
     public function drone()

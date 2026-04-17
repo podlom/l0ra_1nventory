@@ -9,30 +9,34 @@
 		</div>
 	@endif
 
-    <form wire:submit.prevent="{{ $editId ? 'updateItem' : 'addItem' }}" class="flex gap-2 mb-6">
-		<input type="text" wire:model="itemName" placeholder="Назва" class="border p-2 rounded">
+    <div class="bg-white p-6 rounded-lg shadow-md mb-8 border border-gray-200">
+        <form wire:submit.prevent="{{ $editId ? 'updateItem' : 'addItem' }}" class="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
+            <div class="md:col-span-1.5">
+                <input type="text" wire:model="itemName" placeholder="Назва" class="mt-1 block w-full border p-2 rounded">
+            </div>
 
-		<input type="number" wire:model="itemQty" placeholder="К-сть" class="border p-2 w-20 rounded">
+            <div class="md:col-span-2">
+                <input type="number" wire:model="itemQty" placeholder="К-сть" class="border p-2 w-20 rounded">
 
-        <div class="mb-4">
-            <select wire:model="itemUnitId" class="input border p-2 rounded">
-                <option value="">-- Од. виміру --</option>
-                @foreach($units as $u)
-                    <option value="{{ $u->id }}">{{ $u->name }} ({{ $u->full_name }})</option>
-                @endforeach
-            </select>
-            @error('itemUnitId') <p class="text-red-600">{{ $message }}</p> @enderror
-        </div>
+                <select wire:model="itemUnitId" class="input border p-2 rounded">
+                    <option value="">-- Од. виміру --</option>
+                    @foreach($units as $u)
+                        <option value="{{ $u->id }}">{{ $u->name }} ({{ $u->full_name }})</option>
+                    @endforeach
+                </select>
+                @error('itemUnitId') <p class="text-red-600">{{ $message }}</p> @enderror
 
-		<input type="number" wire:model="itemPrice" placeholder="Вартість" class="border p-2 rounded">
+                <input type="number" wire:model="itemPrice" placeholder="Вартість, грн" class="border p-2 rounded">
 
-		@if($editId)
-			<button type="submit" class="bg-green-600 text-white px-4 py-2 rounded">Оновити</button>
-			<button type="button" wire:click="$set('editId', null)" class="bg-gray-500 text-white px-4 py-2 rounded">Скасувати</button>
-		@else
-			<button type="submit" class="bg-blue-600 hover:text-blue-900 text-white px-4 py-2 rounded">Додати</button>
-		@endif
-	</form>
+                @if($editId)
+                    <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded">Оновити</button>
+                    <button type="button" wire:click="$set('editId', null)" class="bg-gray-500 text-white px-4 py-2 rounded">Скасувати</button>
+                @else
+                    <button type="submit" class="bg-blue-600 hover:text-blue-900 text-white px-4 py-2 rounded">Додати</button>
+                @endif
+            </div>
+        </form>
+    </div>
 
     <table class="w-full border-collapse border">
 		<thead>

@@ -10,7 +10,7 @@
     <div class="bg-white p-6 rounded-lg shadow-md mb-8 border border-gray-200">
         <h2 class="text-lg font-semibold mb-4">Додати новий дрон</h2>
         <form wire:submit="save" class="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
-            <div>
+            <div class="md:col-span-2">
                 <label class="block text-sm font-medium text-gray-700">Модель</label>
                 <input type="text" wire:model="model" placeholder="Напр: Mavic 3T"
                        class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
@@ -24,9 +24,11 @@
                 @error('inventory_number') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
             </div>
 
-            <button type="submit" class="bg-blue-600 hover:text-blue-900 text-white font-bold py-2 px-4 rounded transition">
-                Додати в базу
-            </button>
+            <div>
+                <button type="submit" class="w-auto px-4 bg-blue-600 hover:bg-blue-900 text-white font-bold py-2 rounded transition">
+                    Додати в базу
+                </button>
+            </div>
         </form>
     </div>
 
