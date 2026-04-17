@@ -38,7 +38,7 @@
             <tr>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Модель</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Інвентарний №</th>
-                <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Дії</th>
+                <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Дії</th>
             </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
@@ -49,7 +49,7 @@
                         @if($editId === $drone->id)
                             <input type="text"
                                    wire:model="editModel"
-                                   class="border-gray-300 rounded-md w-full">
+                                   class="border-gray-300 rounded-md w-full focus:ring-blue-500 focus:border-blue-500">
                             @error('editModel') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
                         @else
                             {{ $drone->model }}
@@ -61,7 +61,7 @@
                         @if($editId === $drone->id)
                             <input type="text"
                                    wire:model="editInventory"
-                                   class="border-gray-300 rounded-md w-full">
+                                   class="border-gray-300 rounded-md w-full focus:ring-blue-500 focus:border-blue-500">
                             @error('editInventory') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
                         @else
                             {{ $drone->inventory_number }}
@@ -69,13 +69,13 @@
                     </td>
 
                     {{-- ACTIONS --}}
-                    <td class="px-6 py-4 text-sm font-medium">
+                    <td class="px-6 py-4 text-sm font-medium flex items-center justify-end space-x-4">
 
                         @if($editId === $drone->id)
-                            <div>
+                            <div class="flex items-center space-x-3">
                                 <button wire:click="update"
                                         title="Зберегти"
-                                        class="text-green-600 hover:text-green-900 mr-3">
+                                        class="text-green-600 hover:text-green-900">
                                     <x-heroicon-o-check-circle class="w-5 h-5"/>
                                 </button>
 
@@ -87,16 +87,16 @@
                                 </button>
                             </div>
                         @else
-                            <div>
+                            <div class="flex items-center space-x-3">
                                 <button wire:click="edit({{ $drone->id }})"
                                         title="Редагувати"
-                                        class="text-green-600 hover:text-green-900 mr-4">
+                                        class="text-green-600 hover:text-green-900">
                                     <x-heroicon-o-pencil class="w-5 h-5"/>
                                 </button>
 
                                 <a href="{{ route('drone.show', $drone->id) }}"
                                    title="Комплектація"
-                                   class="text-blue-600 hover:text-blue-900 mr-4">
+                                   class="text-blue-600 hover:text-blue-900">
                                     <x-heroicon-o-cog-6-tooth class="w-5 h-5"/>
                                 </a>
 
