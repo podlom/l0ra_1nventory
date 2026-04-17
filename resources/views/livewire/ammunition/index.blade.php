@@ -32,17 +32,19 @@
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 font-mono">{{ $item->in_stock }}</td>
                     <td class="px-6 py-4 text-sm text-gray-500 font-mono">{{ $item->description }}</td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium flex items-center justify-end space-x-4">
-                        <a href="{{ route('ammunition.edit', $item) }}"
-                           title="Редагувати"
-                           class="text-green-600 hover:text-green-900">
-                            <x-heroicon-o-pencil class="w-5 h-5"/>
-                        </a>
+                        <div class="flex items-center space-x-3">
+                            <a href="{{ route('ammunition.edit', $item) }}"
+                               title="Редагувати"
+                               class="text-green-600 hover:text-green-900">
+                                <x-heroicon-o-pencil class="w-5 h-5"/>
+                            </a>
 
-                        <button wire:click="delete({{ $item->id }})"
-                                title="Видалити"
-                                class="text-red-600 hover:text-red-900">
-                            <x-heroicon-o-trash class="w-5 h-5"/>
-                        </button>
+                            <button wire:click="delete({{ $item->id }})"
+                                    title="Видалити"
+                                    class="text-red-600 hover:text-red-900">
+                                <x-heroicon-o-trash class="w-5 h-5"/>
+                            </button>
+                        </div>
                     </td>
                 </tr>
             @endforeach

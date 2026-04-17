@@ -45,7 +45,7 @@
 			<th class="border p-2">Кількість</th>
 			<th class="border p-2">Од. виміру</th>
 			<th class="border p-2">Вартість, грн</th>
-			<th class="border p-2 w-32">Дії</th>
+			<th class="border p-2 w-24">Дії</th>
 		</tr>
 		</thead>
 		<tbody>
@@ -55,18 +55,20 @@
 				<td class="border p-2 text-center">{{ $item->quantity }}</td>
 				<td class="border p-2 text-center">{{ $item->unit->name ?? '—' }}</td>
 				<td class="border p-2 text-right">{{ $item->price ?? '-' }}</td>
-				<td class="border p-2 text-center">
-					<button wire:click="editItem({{ $item->id }})"
-                            title="Редагувати"
-                            class="text-green-600 hover:text-green-900 mr-4">
-                        <x-heroicon-o-pencil class="w-5 h-5"/>
-                    </button>
+				<td class="border p-2">
+                    <div class="flex items-center space-x-3">
+                        <button wire:click="editItem({{ $item->id }})"
+                                title="Редагувати"
+                                class="text-green-600 hover:text-green-900 mr-4">
+                            <x-heroicon-o-pencil class="w-5 h-5"/>
+                        </button>
 
-					<button wire:click="askDelete({{ $item->id }})"
-                            title="Видалити"
-                            class="text-red-600 hover:text-red-900 mr-4">
-                        <x-heroicon-o-trash class="w-5 h-5"/>
-                    </button>
+                        <button wire:click="askDelete({{ $item->id }})"
+                                title="Видалити"
+                                class="text-red-600 hover:text-red-900 mr-4">
+                            <x-heroicon-o-trash class="w-5 h-5"/>
+                        </button>
+                    </div>
 				</td>
 			</tr>
 		@endforeach
