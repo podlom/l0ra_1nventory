@@ -8,6 +8,8 @@ use Livewire\WithPagination;
 
 class InvoiceIndex extends Component
 {
+    const INVOICE_PAGER_SIZE = 15;
+
     use WithPagination;
 
     public function delete(Invoice $invoice)
@@ -19,7 +21,7 @@ class InvoiceIndex extends Component
     public function render()
     {
         return view('livewire.invoices.index', [
-            'invoices' => Invoice::paginate(10),
+            'invoices' => Invoice::orderByDesc('id')->paginate(self::INVOICE_PAGER_SIZE),
         ]);
     }
 }

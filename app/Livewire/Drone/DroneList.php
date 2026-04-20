@@ -16,7 +16,9 @@ class DroneList extends Component
 
     // --- Inline edit fields ---
     public $editId = null;
+
     public $editModel = '';
+
     public $editInventory = '';
 
     public function save()
@@ -47,7 +49,7 @@ class DroneList extends Component
     {
         $this->validate([
             'editModel' => 'required|min:3|string',
-            'editInventory' => 'required|unique:drones,inventory_number,' . $this->editId,
+            'editInventory' => 'required|unique:drones,inventory_number,'.$this->editId,
         ]);
 
         Drone::find($this->editId)->update([

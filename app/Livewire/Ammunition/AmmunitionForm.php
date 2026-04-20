@@ -29,7 +29,7 @@ class AmmunitionForm extends Component
 
     public $description;
 
-    public string|null $return_url = null;
+    public ?string $return_url = null;
 
     public function mount(?Ammunition $ammo = null)
     {

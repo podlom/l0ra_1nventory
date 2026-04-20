@@ -8,6 +8,8 @@ use Livewire\WithPagination;
 
 class UnitIndex extends Component
 {
+    const UNIT_PAGER_SIZE = 10;
+
     use WithPagination;
 
     public function delete(Unit $unit)
@@ -19,7 +21,7 @@ class UnitIndex extends Component
     public function render()
     {
         return view('livewire.units.index', [
-            'units' => Unit::paginate(10),
+            'units' => Unit::paginate(self::UNIT_PAGER_SIZE),
         ]);
     }
 }
