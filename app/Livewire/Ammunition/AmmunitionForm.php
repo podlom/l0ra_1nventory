@@ -85,7 +85,7 @@ class AmmunitionForm extends Component
     public function render()
     {
         return view('livewire.ammunition.form', [
-            'invoices' => Invoice::all(),
+            'invoices' => Invoice::latest()->get(),
             'units' => Unit::all(),
             'return_url' => $this->return_url,
         ]);

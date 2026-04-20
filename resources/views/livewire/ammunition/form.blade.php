@@ -10,7 +10,7 @@
             <select wire:model="invoice_id" class="input border p-2 rounded">
                 <option value="">-- виберіть накладну --</option>
                 @foreach($invoices as $inv)
-                    <option value="{{ $inv->id }}">{{ $inv->number }}</option>
+                    <option value="{{ $inv->id }}">{{ $inv->number }} {{ $inv->invoice_date }}</option>
                 @endforeach
             </select>
             @error('invoice_id') <p class="text-red-600">{{ $message }}</p> @enderror
