@@ -1,8 +1,16 @@
 <div class="max-w-3xl mx-auto py-10">
 
-    <h1 class="text-3xl font-bold mb-8">База майна підрозділів 33 ОМБР РБПАК</h1>
+    <div class="flex items-center space-x-4">
+        <img src="{{ Vite::asset('resources/img/logo.png') }}"
+             width="124"
+             alt="Лого майстерні">
 
-    <div class="space-y-6">
+        <h1 class="text-3xl font-bold">
+            База майна підрозділів 33 ОМБР РБПАК
+        </h1>
+    </div>
+
+    <div class="space-y-6 mt-8">
 
         {{-- Блок Майно --}}
         <div class="p-6 border rounded-lg shadow-sm bg-white">

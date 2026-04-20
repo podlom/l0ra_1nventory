@@ -38,7 +38,9 @@ class AmmunitionIndex extends Component
     public function render()
     {
         return view('livewire.ammunition.index', [
-            'items' => Ammunition::with(['invoice', 'unit'])->paginate(self::AMUNITION_PAGER_SIZE),
+            'items' => Ammunition::with(['invoice', 'unit'])
+                ->orderByDesc('id')
+                ->paginate(self::AMUNITION_PAGER_SIZE),
             'returnUrl' => $this->getReturnUrlProperty(),
         ]);
     }
